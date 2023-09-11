@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"go-api-example/internal/controllers"
+	"go-api-example/internal/services"
 
 	"github.com/gin-gonic/gin"
 )
@@ -22,6 +23,10 @@ func (s *ApiServer) Run() {
 
 	defaultController := controllers.NewDefaultController()
 	defaultController.ConfigureRoutes(&router.RouterGroup)
+
+	skuService := services.NewSkuService()
+	skusController := controllers.NewSkusController(&skuService)
+	skusController.ConfigureRoutes(&router.RouterGroup)
 
 	err := router.Run(":8080")
 	if err != nil {
