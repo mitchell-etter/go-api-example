@@ -24,8 +24,8 @@ func (s *ApiServer) Run() {
 	defaultController := controllers.NewDefaultController()
 	defaultController.ConfigureRoutes(&router.RouterGroup)
 
-	skuService := services.NewSkuService()
-	skusController := controllers.NewSkusController(&skuService)
+	catalogItemService := services.NewCatalogItemService()
+	skusController := controllers.NewCatalogItemsController(&catalogItemService)
 	skusController.ConfigureRoutes(&router.RouterGroup)
 
 	err := router.Run(":8080")
