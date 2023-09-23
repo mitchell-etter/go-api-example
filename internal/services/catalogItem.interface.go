@@ -2,7 +2,7 @@ package services
 
 type CatalogItemService interface {
 	GetAll() []CatalogListItem
-	GetBySku(string) CatalogItem
+	GetBySku(string) *CatalogItem
 }
 
 type CatalogListItem struct {

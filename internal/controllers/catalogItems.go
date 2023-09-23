@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"log"
 	"net/http"
 
 	"go-api-example/internal/services"
@@ -31,5 +32,12 @@ func (controller *CatalogItemsController) ListCatalogItems(context *gin.Context)
 func (controller *CatalogItemsController) GetCatalogItem(context *gin.Context) {
 	sku := context.Param("id")
 	catalogItem := controller.catalogItemService.GetBySku(sku)
+
+	if catalogItem == nil {
+		log.Println("catalog item not found")
+		context.String(http.StatusNotFound, "")
+		return
+	}
+
 	context.JSON(http.StatusOK, catalogItem)
 }

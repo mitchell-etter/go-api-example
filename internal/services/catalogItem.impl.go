@@ -11,6 +11,6 @@ func (svc *catalogItemServiceImpl) GetAll() []CatalogListItem {
 	return []CatalogListItem{}
 }
 
-func (svc *catalogItemServiceImpl) GetBySku(sku string) CatalogItem {
-	return CatalogItem{}
+func (svc *catalogItemServiceImpl) GetBySku(sku string) *CatalogItem {
+	return &CatalogItem{}
 }
