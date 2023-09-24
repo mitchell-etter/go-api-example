@@ -18,5 +18,5 @@ func (controller *DefaultController) ConfigureRoutes(router *gin.RouterGroup) {
 }
 
 func (controller *DefaultController) GetRoot(context *gin.Context) {
-	context.String(http.StatusOK, "Hello there!")
+	context.HTML(http.StatusOK, "index.tmpl", gin.H{})
 }

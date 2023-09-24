@@ -18,6 +18,7 @@ func NewApiServer() *ApiServer {
 
 func (s *ApiServer) Run() {
 	router := gin.Default()
+	router.LoadHTMLGlob("templates/*")
 	// Call SetTrustedProxies to only trust specific values
 	// route.SetTrustedProxies([]string{"127.0.0.1"})
 

@@ -13,3 +13,5 @@ To run the example:
     ```shell
     go run .
     ```
+
+1. In a web browser, navigate to http://localhost:8080.
